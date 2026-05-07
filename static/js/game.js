@@ -42,7 +42,7 @@ canvas.addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', (e) => {
-    if (e.code === 'Space' && !gameState.game_over) {
+    if (e.code === 'Space' && gameState && !gameState.game_over) {
         e.preventDefault();
         fetch('/api/spawn-enemy', { method: 'POST' });
     }
