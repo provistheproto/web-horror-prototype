@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Horror Prototype</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div id="ui">
+            <div id="stats">
+                <div class="stat">
+                    <label>Health:</label>
+                    <div class="bar health-bar">
+                        <div id="healthBar" class="fill"></div>
+                    </div>
+                    <span id="healthText">100/100</span>
+                </div>
+                
+                <div class="stat">
+                    <label>Fear:</label>
+                    <div class="bar fear-bar">
+                        <div id="fearBar" class="fill"></div>
+                    </div>
+                    <span id="fearText">0/100</span>
+                </div>
+                
+                <div class="stat">
+                    <label>Score:</label>
+                    <span id="scoreText">0</span>
+                </div>
+                
+                <div class="stat">
+                    <label>Wave:</label>
+                    <span id="waveText">1</span>
+                </div>
+            </div>
+            
+            <div id="crosshair"></div>
+            
+            <div id="gameOverScreen" class="hidden">
+                <div class="gameOverContent">
+                    <h1>GAME OVER</h1>
+                    <p>Final Score: <span id="finalScore">0</span></p>
+                    <p id="gameOverReason"></p>
+                    <button onclick="resetGame()">Play Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
