@@ -2,8 +2,9 @@ from flask import Flask, render_template, jsonify, request
 import json
 import random
 import math
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates', static_folder='static')
 
 # Game state
 game_state = {
@@ -134,4 +135,6 @@ def reset():
     return jsonify(game_state)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    print("🎮 Starting Web Horror Prototype...")
+    print("📍 Open http://localhost:5000 in your browser")
+    app.run(debug=True, host='0.0.0.0', port=5000)
